@@ -3,7 +3,7 @@
 #include "Data.h"
 using namespace std;
 
-void get_Error_Position(int*, int*);
+void get_Error_Position(int*, int*, Data*);
 
 int main(int argc, char *argv[]) {
 	// Sender data (16 bits), Receiver noisy data (16 bits)
@@ -28,13 +28,17 @@ int main(int argc, char *argv[]) {
 	Receiver.printData();
 	#endif
 
-	get_Error_Position(Sender.parity_bits, Receiver.parity_bits);
+	get_Error_Position(Sender.parity_bits, Receiver.parity_bits, &Receiver);
+
+	// After Correction
+	cout << "Receiver (After Correction)";
+	Receiver.printData();
 	return 0;
 
 }
 
-// ***
-void get_Error_Position(int *Sender_Parity, int *Receiver_Parity) {
+// Get error position and change it back
+void get_Error_Position(int *Sender_Parity, int *Receiver_Parity, Data *Receiver) {
 	int error_bit[4][4];
 	// Initialization
 	for (int i = 0; i < 4; i++) {
@@ -98,9 +102,11 @@ void get_Error_Position(int *Sender_Parity, int *Receiver_Parity) {
 				cout << "The error bit is at" << endl;
 				cout << "row : " << i << endl;
 				cout << "col : " << j << endl;
+				Receiver->setBits(!(Receiver->getBits(i, j)), i, j);
 				return;
 			}
 		}
 	}
-	cout << "There is not error bit" << endl;
+	cout << "There is no error bit" << endl;
+
 }
