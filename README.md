@@ -39,7 +39,7 @@ The error bit is at
 row : 2
 col : 3
 Receiver (After Correction)
-0 1 0 0 
+0 0 1 0 
 1 1 1 0 
 1 0 1 0 
 1 1 1 0 

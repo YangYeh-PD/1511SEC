@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 	#endif
 
 	get_Error_Position(Sender.parity_bits, Receiver.parity_bits, &Receiver);
-
+	Receiver.fill_parity();
 	// After Correction
 	cout << "Receiver (After Correction)";
 	Receiver.printData();
