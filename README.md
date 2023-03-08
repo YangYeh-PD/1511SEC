@@ -1,6 +1,7 @@
 # 1511SEC
 ## Catalog
 Here is the project to implement <b>(15,11) <a href = "https://en.wikipedia.org/wiki/Hamming_code">Hamming Code </a></b> (Single Error Correction).  
+The zeroth, first, second, fourth and eighth ($2^n$) are parity bits.  
 For the given Sender and Receiver data,
 ```
 Sender
@@ -20,7 +21,7 @@ The error bit is at
 row : 2
 col : 3
 Receiver (After Correction)
-0 1 0 0 
+0 0 1 0 
 1 1 1 0 
 1 0 1 0 
 1 1 1 0 
